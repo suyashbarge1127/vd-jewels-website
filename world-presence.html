@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Presence - VD JEWELS ARTISON</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        .world-map-section {
+            text-align: center;
+            background: #EFEEE1;
+            padding: 120px 20px 60px; /* Kept 120px top padding so it doesn't hide under the fixed navbar */
+            font-family: 'Playfair Display', serif;
+            min-height: 100vh;
+        }
+
+        body.dark-mode .world-map-section {
+            background-color: #1A1A1A;
+        }
+
+        .world-map-section h2 {
+            letter-spacing: 4px;
+            font-size: 32px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+        }
+
+        body.dark-mode .world-map-section h2 {
+            color: #ffffff;
+        }
+
+        .map-container {
+            position: relative;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .map-image {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        body.dark-mode .map-image {
+            filter: brightness(0.7) invert(0.1);
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="new-strip-nav scrolled" style="position: fixed; width: 100%; top: 0; z-index: 1000; padding: 15px 0;">
+        <div class="strip-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/logo_uploaded.png" alt="VD JEWELS ARTISON" id="nav-logo">
+                </a>
+            </div>
+            <ul class="strip-links">
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="index.html#leadership">LEADERSHIP</a></li>
+                <li><a href="about.html#mission">MISSION</a></li>
+                <li><a href="services.html">MANUFACTURING</a></li>
+                <li><a href="about.html#clients">CLIENTS</a></li>
+                <li><a href="world-presence.html">WORLD PRESENCE</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button id="theme-toggle" class="theme-toggle strip-theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="contact.html" class="nav-connect-btn">CONNECT</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Integrated EXACT User HTML Snippet -->
+    <section class="world-map-section fade-in">
+        <h2>OUR WORLD PRESENCE</h2>
+
+        <div class="map-container">
+            <img src="assets/world-map.png" alt="World Map" class="map-image">
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <div class="logo footer-logo">
+                        <img src="assets/logo_uploaded.png" alt="VD JEWELS ARTISON" style="height: 80px;">
+                    </div>
+                    <p style="color: #999; margin-bottom: 20px;">
+                        VD Jewels Artison Pvt Ltd is a premier jewellery house dedicated to the art of fine jewellery.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/vdjartison/" target="_blank" style="margin-right: 20px;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/vdjartison" target="_blank" style="margin-right: 20px;"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Collections</h4>
+                    <ul>
+                        <li><a href="#">Gold</a></li>
+                        <li><a href="#">Diamond</a></li>
+                        <li><a href="#">Bridal</a></li>
+                        <li><a href="#">Daily Wear</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="about.html">Our Story</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="world-presence.html">World Presence</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 VD Jewels Artison Pvt Ltd. All Rights Reserved. Designed for Luxury.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections | VD Jewels Artison</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .filter-btn {
+            background: none;
+            border: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            color: var(--text-light);
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+        .filter-btn.active {
+            color: var(--accent-gold);
+            border-bottom: 2px solid var(--accent-gold);
+        }
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+        .product-item {
+            background: white;
+            padding: 20px;
+            transition: var(--transition);
+        }
+        .product-item:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            transform: translateY(-10px);
+        }
+        .product-img-wrapper {
+            height: 400px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background-color: #ffffff; /* White background as requested */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .product-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            mix-blend-mode: multiply; /* Blends white background to pure white */
+        }
+        .product-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+        .product-info p {
+            color: var(--accent-gold);
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_uploaded.png" alt="VD JEWELS ARTISON">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Collections</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="section-padding" style="background: var(--primary-color); padding-top: 150px; text-align: center;">
+        <div class="container">
+            <span class="section-subtitle">Exquisite Portfolio</span>
+            <h1 class="section-title">Our Collections</h1>
+        </div>
+    </header>
+
+    <section class="section-padding fade-in">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Pieces</button>
+                <button class="filter-btn" data-filter="necklaces">Necklaces</button>
+                <button class="filter-btn" data-filter="earrings">Earrings</button>
+                <button class="filter-btn" data-filter="rings">Rings</button>
+                <button class="filter-btn" data-filter="bracelets">Bracelets</button>
+            </div>
+
+            <div class="gallery-grid" id="gallery-grid">
+                <!-- Products will be generated here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 VD Jewels Artison Pvt Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Data generation from local directories
+        const categories = {
+            'necklaces': {
+                name: 'Necklace',
+                images: [
+                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE25834%20F-2.jpg',
+                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE27594-4.png',
+                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE51377-3.png',
+                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE51381-1.jpg',
+                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE51431-5.png',
+                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNK14751..jpg'
+                ]
+            },
+            'earrings': {
+                name: 'Earrings',
+                images: [
+                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO12620.png',
+                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO12752.png',
+                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO13872.jpg',
+                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO13876.jpg',
+                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO13889%20..jpg',
+                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO14877.jpg'
+                ]
+            },
+            'rings': {
+                name: 'Ring',
+                images: [
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13446..jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13486.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13488.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13489.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13512.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13521..jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13521.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14335..jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14982.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14983.jpg',
+                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14993.jpg'
+                ]
+            },
+            'bracelets': {
+                name: 'Bracelet',
+                images: [
+                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBO12824.jpg',
+                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBR12827.png',
+                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBR13279.png',
+                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBR13316.jpg'
+                ]
+            }
+        };
+
+        const galleryGrid = document.getElementById('gallery-grid');
+        let productsHTML = '';
+
+        for (const [catId, catData] of Object.entries(categories)) {
+            catData.images.forEach((imgSrc, index) => {
+                // Extract filename without extension and handle URL encoding
+                const fullFileName = decodeURIComponent(imgSrc.split('/').pop());
+                const fileNameNoExt = fullFileName.split('.')[0];
+                // Get the first part of the filename (often the actual style code)
+                const styleNumber = fileNameNoExt.split(' ')[0].replace(/[^a-zA-Z0-9]/g, ''); 
+                
+                productsHTML += `
+                    <div class="product-item" data-category="${catId}">
+                        <div class="product-img-wrapper">
+                            <img src="${imgSrc}" alt="${catData.name} ${styleNumber}" loading="lazy">
+                        </div>
+                        <div class="product-info">
+                            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 1px;">${catData.name}</h3>
+                            <p style="color: var(--accent-gold); font-size: 0.9rem; letter-spacing: 1px; margin-top: 5px;">STYLE: ${styleNumber}</p>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        galleryGrid.innerHTML = productsHTML;
+
+        // Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const productItems = document.querySelectorAll('.product-item');
+
+        function applyFilter(filterValue) {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            const activeBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
+            if (activeBtn) activeBtn.classList.add('active');
+
+            productItems.forEach(item => {
+                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 400);
+                }
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                applyFilter(btn.getAttribute('data-filter'));
+            });
+        });
+
+        // URL Parameter handling
+        window.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const collection = urlParams.get('collection');
+            if (collection && ['necklaces', 'earrings', 'rings', 'bracelets'].includes(collection)) {
+                applyFilter(collection);
+            }
+        });
+    </script>
+</body>
+</html>

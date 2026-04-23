@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | VD Jewels Artison</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .about-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('assets/craftsmanship.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 80px;
+        }
+        .craft-visuals {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 60px;
+        }
+        .craft-visuals img {
+            height: 400px;
+            width: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav id="navbar" class="scrolled">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo_uploaded.png" alt="VD JEWELS ARTISON">
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="products.html">Collections</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="nav-icons">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="about-hero">
+        <div class="container">
+            <span class="section-subtitle" style="color: var(--primary-color);">Discover Our Legacy</span>
+            <h1 class="section-title" style="color: white;">Crafting Elegance Since Decades</h1>
+        </div>
+    </header>
+
+    <section class="section-padding fade-in">
+        <div class="container">
+            <div style="max-width: 900px; margin: 0 auto; text-align: center;">
+                <span class="section-subtitle">Who We Are</span>
+                <h2 class="section-title">VD Jewels Artison Pvt Ltd</h2>
+                <p>
+                    Established over 35 years ago, VD Jewels Artison Pvt Ltd is a premier diamond and gemstone fine jewellery house based in Mumbai. We are renowned as the "Jeweller to the Jewellers," crafting exquisite collections for some of the world's most prestigious brands, including SENCO, GIVA, and Prince Jewellery.
+                </p>
+                <p style="margin-top: 20px;">
+                    Under the leadership of Director & GIA Gemologist **Yash Dangayach**, we combine traditional hand-mastery with state-of-the-art CAD/CAM innovation. Our philosophy is rooted in the belief that every piece of jewellery should be a legacy, meticulously crafted to perfection.
+                </p>
+            </div>
+
+            <div class="mission-vision">
+                <div>
+                    <h3 class="serif" style="font-size: 2rem; margin-bottom: 20px;">Our Vision</h3>
+                    <p>To redefine global luxury standards by providing unparalleled craftsmanship and setting new benchmarks in the fine jewellery industry.</p>
+                </div>
+                <div>
+                    <h3 class="serif" style="font-size: 2rem; margin-bottom: 20px;">Our Mission</h3>
+                    <p>To serve as the trusted manufacturing partner for luxury brands, delivering high-precision designs with absolute integrity and artistic excellence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding fade-in" style="background: var(--warm-beige);">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-subtitle">Our Infrastructure</span>
+                <h2 class="section-title">State-of-the-Art Facilities</h2>
+                <p style="max-width: 800px; margin: 0 auto 60px;">
+                    Our primary 25,000 sq. ft., 8-storey manufacturing facility is located in SEEPZ, Mumbai, housing our master artisans and high-tech production lines. We also operate a secondary specialized plant in China to ensure global supply efficiency.
+                </p>
+            </div>
+            <div class="craft-visuals">
+                <img src="assets/craftsmanship.png" alt="Mumbai Atelier">
+                <img src="assets/hero.png" alt="Precision Design">
+            </div>
+            <div style="margin-top: 60px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; text-align: center;">
+                <div>
+                    <h4 class="serif" style="font-size: 1.5rem; margin-bottom: 10px;">01. Design</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Conceptualizing unique patterns that blend traditional heritage with modern flair.</p>
+                </div>
+                <div>
+                    <h4 class="serif" style="font-size: 1.5rem; margin-bottom: 10px;">02. Sourcing</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Hand-selecting the finest ethically sourced diamonds and precious metals.</p>
+                </div>
+                <div>
+                    <h4 class="serif" style="font-size: 1.5rem; margin-bottom: 10px;">03. Creation</h4>
+                    <p style="font-size: 0.9rem; color: var(--text-light);">Meticulous hand-setting and polishing by master artisans to achieve perfection.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 VD Jewels Artison Pvt Ltd. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
