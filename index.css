@@ -912,7 +912,7 @@ body:not(.dark-mode) .leadership-section {
 }
 
 body:not(.dark-mode) .mission-section {
-    background-color: #F9F9F9 !important;
+    background-color: var(--warm-beige) !important;
 }
 
 body:not(.dark-mode) .legacy-stats {
