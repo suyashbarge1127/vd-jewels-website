@@ -993,8 +993,8 @@ body:not(.dark-mode) footer .footer-links h4 {
 
 .mission-subtitle-strip {
     display: inline-block;
-    background-color: #3B5998; /* Using the blue from screenshot but keeping it refined */
-    color: var(--white);
+    background-color: var(--accent-gold); 
+    color: var(--charcoal);
     padding: 4px 15px;
     font-size: 0.75rem;
     letter-spacing: 2px;
