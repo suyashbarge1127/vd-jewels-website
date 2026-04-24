@@ -916,7 +916,7 @@ body:not(.dark-mode) .mission-section {
 }
 
 body:not(.dark-mode) .legacy-stats {
-    background-color: var(--charcoal) !important; /* Dark contrast */
+    background-color: #735b45 !important;
     color: var(--white) !important;
 }
 
