@@ -897,92 +897,51 @@ body.dark-mode footer {
 }
 
 /* Light Mode Alternating Layout Colors */
+
+/* --- Light Mode Color Sequence --- */
 body:not(.dark-mode) .hero {
     background: radial-gradient(circle at center, #8A735B 0%, #735B45 100%) !important;
 }
 
 body:not(.dark-mode) .company-glance-section {
-    background-color: #f5f5f5 !important;
-    color: var(--charcoal) !important;
-}
-body:not(.dark-mode) .company-glance-section p {
-    color: #555555 !important;
-}
-body:not(.dark-mode) .company-glance-section .house-subtitle,
-body:not(.dark-mode) .company-glance-section .glance-title {
-    color: var(--accent-gold-dark) !important;
+    background-color: var(--warm-beige) !important;
 }
 
 body:not(.dark-mode) .leadership-section {
-    background-color: #efeee1 !important;
-    color: var(--charcoal) !important;
+    background-color: var(--white) !important;
+}
+
+body:not(.dark-mode) .mission-section {
+    background-color: #F9F9F9 !important;
 }
 
 body:not(.dark-mode) .legacy-stats {
-    background-color: #735b45 !important;
-    color: #FFFFFF !important;
-}
-body:not(.dark-mode) .legacy-stats .section-title,
-body:not(.dark-mode) .legacy-stats p,
-body:not(.dark-mode) .legacy-stats h3 {
-    color: #FFFFFF !important;
-}
-body:not(.dark-mode) .legacy-stats .section-subtitle,
-body:not(.dark-mode) .legacy-stats .stat-v2 h3 {
-    color: #D4AF37 !important;
+    background-color: var(--charcoal) !important; /* Dark contrast */
+    color: var(--white) !important;
 }
 
 body:not(.dark-mode) .collections-section {
-    background-color: #f5f5f5 !important;
-    color: var(--charcoal) !important;
-}
-body:not(.dark-mode) .collections-section .section-title {
-    color: var(--charcoal) !important;
-}
-body:not(.dark-mode) .collections-section .section-subtitle {
-    color: var(--accent-gold-dark) !important;
+    background-color: var(--white) !important;
 }
 
 body:not(.dark-mode) .features {
-    background-color: #efeee1 !important;
-    color: var(--charcoal) !important;
-}
-body:not(.dark-mode) .features .section-title,
-body:not(.dark-mode) .features h3 {
-    color: var(--charcoal) !important;
-}
-body:not(.dark-mode) .features p {
-    color: #555555 !important;
+    background-color: var(--warm-beige) !important;
 }
 
 body:not(.dark-mode) .testimonials {
-    background-color: #735b45 !important;
-    color: #FFFFFF !important;
-}
-body:not(.dark-mode) .testimonials .testimonial-card p {
-    color: #FFFFFF !important;
+    background-color: var(--white) !important;
 }
 
 body:not(.dark-mode) .cta-section {
-    background-color: #f5f5f5 !important;
-    color: var(--charcoal) !important;
-}
-body:not(.dark-mode) .cta-section .section-title,
-body:not(.dark-mode) .cta-section p {
-    color: var(--charcoal) !important;
+    background-color: #735b45 !important; /* Bronze/Brown */
+    color: var(--white) !important;
 }
 
 body:not(.dark-mode) footer {
-    background-color: #efeee1 !important;
-    color: var(--charcoal) !important;
+    background-color: #0D0D0D !important;
+    color: #FFFFFF !important;
 }
-body:not(.dark-mode) footer p, 
-body:not(.dark-mode) footer a {
-    color: #555555 !important;
-}
-body:not(.dark-mode) footer .footer-links h4 {
-    color: var(--accent-gold-dark) !important;
-}
+
 
 /* Mission Section */
 .mission-section {
