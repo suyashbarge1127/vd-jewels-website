@@ -983,3 +983,95 @@ body:not(.dark-mode) footer a {
 body:not(.dark-mode) footer .footer-links h4 {
     color: var(--accent-gold-dark) !important;
 }
+
+/* Mission Section */
+.mission-section {
+    background-color: var(--primary-color);
+    padding: 120px 0;
+    text-align: center;
+}
+
+.mission-subtitle-strip {
+    display: inline-block;
+    background-color: #3B5998; /* Using the blue from screenshot but keeping it refined */
+    color: var(--white);
+    padding: 4px 15px;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.mission-statement {
+    max-width: 900px;
+    margin: 40px auto 80px;
+    font-size: 1.25rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.mission-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.mission-card {
+    background: var(--white);
+    padding: 50px 30px;
+    border: 1px solid rgba(0,0,0,0.05);
+    text-align: left;
+    position: relative;
+    transition: var(--transition);
+}
+
+.mission-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+}
+
+.mission-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--charcoal);
+}
+
+.mission-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+.mission-num {
+    position: absolute;
+    top: 40px;
+    right: 30px;
+    font-size: 2rem;
+    color: var(--accent-gold);
+    opacity: 0.15;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+body.dark-mode .mission-card {
+    background: #111;
+    border-color: #333;
+}
+
+body.dark-mode .mission-card h3 {
+    color: var(--white);
+}
+
+@media (max-width: 992px) {
+    .mission-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .mission-grid {
+        grid-template-columns: 1fr;
+    }
+}
