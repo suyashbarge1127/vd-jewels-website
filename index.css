@@ -926,6 +926,14 @@ body:not(.dark-mode) .collections-section {
 
 body:not(.dark-mode) .features {
     background-color: var(--warm-beige) !important;
+    color: var(--charcoal) !important;
+}
+body:not(.dark-mode) .features .section-title,
+body:not(.dark-mode) .features h3 {
+    color: var(--charcoal) !important;
+}
+body:not(.dark-mode) .features p {
+    color: #444444 !important;
 }
 
 body:not(.dark-mode) .testimonials {
