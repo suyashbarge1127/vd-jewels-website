@@ -7,64 +7,57 @@
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .filter-container {
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .product-card {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        .product-img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .style-code {
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .filter-nav {
             display: flex;
             justify-content: center;
             gap: 30px;
-            margin-bottom: 60px;
+            margin-bottom: 50px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
         }
         .filter-btn {
             background: none;
             border: none;
             font-size: 0.9rem;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             cursor: pointer;
             color: var(--text-light);
-            padding-bottom: 5px;
-            border-bottom: 2px solid transparent;
+            padding: 5px 10px;
             transition: var(--transition);
         }
         .filter-btn.active {
             color: var(--accent-gold);
             border-bottom: 2px solid var(--accent-gold);
-        }
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 40px;
-        }
-        .product-item {
-            background: white;
-            padding: 20px;
-            transition: var(--transition);
-        }
-        .product-item:hover {
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
-            transform: translateY(-10px);
-        }
-        .product-img-wrapper {
-            height: 400px;
-            overflow: hidden;
-            margin-bottom: 20px;
-            background-color: #ffffff; /* White background as requested */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .product-img-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            mix-blend-mode: multiply; /* Blends white background to pure white */
-        }
-        .product-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-        .product-info p {
-            color: var(--accent-gold);
-            font-weight: 500;
         }
     </style>
 </head>
@@ -85,31 +78,22 @@
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
             </div>
         </div>
     </nav>
 
-    <header class="section-padding" style="background: var(--primary-color); padding-top: 150px; text-align: center;">
+    <section class="section-padding" style="margin-top: 80px;">
         <div class="container">
-            <span class="section-subtitle">Exquisite Portfolio</span>
-            <h1 class="section-title">Our Collections</h1>
-        </div>
-    </header>
-
-    <section class="section-padding fade-in">
-        <div class="container">
-            <div class="filter-container">
-                <button class="filter-btn active" data-filter="all">All Pieces</button>
-                <button class="filter-btn" data-filter="necklaces">Necklaces</button>
-                <button class="filter-btn" data-filter="earrings">Earrings</button>
-                <button class="filter-btn" data-filter="rings">Rings</button>
-                <button class="filter-btn" data-filter="bracelets">Bracelets</button>
+            <div class="filter-nav">
+                <button class="filter-btn active" data-category="all">All Pieces</button>
+                <button class="filter-btn" data-category="necklaces">Necklaces</button>
+                <button class="filter-btn" data-category="earrings">Earrings</button>
+                <button class="filter-btn" data-category="rings">Rings</button>
+                <button class="filter-btn" data-category="bracelets">Bracelets</button>
             </div>
 
-            <div class="gallery-grid" id="gallery-grid">
-                <!-- Products will be generated here by JavaScript -->
+            <div id="gallery-grid" class="product-grid">
+                <!-- Products will be loaded here -->
             </div>
         </div>
     </section>
@@ -124,124 +108,91 @@
 
     <script src="main.js"></script>
     <script>
-        // Data generation from local directories
         const categories = {
             'necklaces': {
                 name: 'Necklace',
                 images: [
-                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE25834%20F-2.jpg',
-                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE27594-4.png',
-                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE51377-3.png',
-                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE51381-1.jpg',
-                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNE51431-5.png',
-                    'file:///D:/Web%20pages/Domestic/Necklaces/VDDNK14751..jpg'
+                    'assets/VDDNE25834 F-2.jpg',
+                    'assets/VDDNE27594-4.png',
+                    'assets/VDDNE51377-3.png',
+                    'assets/VDDNE51381-1.jpg',
+                    'assets/VDDNE51431-5.png',
+                    'assets/VDDNK14751..jpg'
                 ]
             },
             'earrings': {
                 name: 'Earrings',
                 images: [
-                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO12620.png',
-                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO12752.png',
-                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO13872.jpg',
-                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO13876.jpg',
-                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO13889%20..jpg',
-                    'file:///D:/Web%20pages/Domestic/Earrings/VDDEO14877.jpg'
+                    'assets/VDDEO12620.png',
+                    'assets/VDDEO12752.png',
+                    'assets/VDDEO13872.jpg',
+                    'assets/VDDEO13876.jpg',
+                    'assets/VDDEO13889 ..jpg',
+                    'assets/VDDEO14877.jpg'
                 ]
             },
             'rings': {
                 name: 'Ring',
                 images: [
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13446..jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13486.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13488.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13489.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13512.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13521..jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO13521.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14335..jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14982.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14983.jpg',
-                    'file:///D:/Web%20pages/Domestic/Rings/VDDRO14993.jpg'
+                    'assets/VDDRO13446..jpg',
+                    'assets/VDDRO13486.jpg',
+                    'assets/VDDRO13488.jpg',
+                    'assets/VDDRO13489.jpg',
+                    'assets/VDDRO13512.jpg',
+                    'assets/VDDRO13521..jpg',
+                    'assets/VDDRO13521.jpg',
+                    'assets/VDDRO14335..jpg',
+                    'assets/VDDRO14982.jpg',
+                    'assets/VDDRO14983.jpg',
+                    'assets/VDDRO14993.jpg'
                 ]
             },
             'bracelets': {
                 name: 'Bracelet',
                 images: [
-                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBO12824.jpg',
-                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBR12827.png',
-                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBR13279.png',
-                    'file:///D:/Web%20pages/Domestic/Bracelet/VDDBR13316.jpg'
+                    'assets/VDDBO12824.jpg',
+                    'assets/VDDBR12827.png',
+                    'assets/VDDBR13279.png',
+                    'assets/VDDBR13316.jpg'
                 ]
             }
         };
 
         const galleryGrid = document.getElementById('gallery-grid');
-        let productsHTML = '';
-
-        for (const [catId, catData] of Object.entries(categories)) {
-            catData.images.forEach((imgSrc, index) => {
-                // Extract filename without extension and handle URL encoding
-                const fullFileName = decodeURIComponent(imgSrc.split('/').pop());
-                const fileNameNoExt = fullFileName.split('.')[0];
-                // Get the first part of the filename (often the actual style code)
-                const styleNumber = fileNameNoExt.split(' ')[0].replace(/[^a-zA-Z0-9]/g, ''); 
-                
-                productsHTML += `
-                    <div class="product-item" data-category="${catId}">
-                        <div class="product-img-wrapper">
-                            <img src="${imgSrc}" alt="${catData.name} ${styleNumber}" loading="lazy">
-                        </div>
-                        <div class="product-info">
-                            <h3 style="font-family: 'Playfair Display', serif; font-size: 1.1rem; letter-spacing: 1px;">${catData.name}</h3>
-                            <p style="color: var(--accent-gold); font-size: 0.9rem; letter-spacing: 1px; margin-top: 5px;">STYLE: ${styleNumber}</p>
-                        </div>
-                    </div>
-                `;
-            });
-        }
-
-        galleryGrid.innerHTML = productsHTML;
-
-        // Filtering Logic
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const productItems = document.querySelectorAll('.product-item');
-
-        function applyFilter(filterValue) {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            const activeBtn = document.querySelector(`.filter-btn[data-filter="${filterValue}"]`);
-            if (activeBtn) activeBtn.classList.add('active');
-
-            productItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 400);
+        
+        function renderGallery(filter = 'all') {
+            let productsHTML = '';
+            
+            Object.keys(categories).forEach(catKey => {
+                if (filter === 'all' || filter === catKey) {
+                    const cat = categories[catKey];
+                    cat.images.forEach(imgSrc => {
+                        const styleCode = imgSrc.split('/').pop().split('.')[0];
+                        productsHTML += `
+                            <div class="product-card fade-in appear">
+                                <img src="${imgSrc}" alt="${cat.name} ${styleCode}" class="product-img">
+                                <h3 class="serif">${cat.name}</h3>
+                                <div class="style-code">Style: ${styleCode}</div>
+                            </div>
+                        `;
+                    });
                 }
             });
+            
+            galleryGrid.innerHTML = productsHTML;
         }
 
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                applyFilter(btn.getAttribute('data-filter'));
+        // Filter functionality
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                e.target.classList.add('active');
+                renderGallery(e.target.dataset.category);
             });
         });
 
-        // URL Parameter handling
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const collection = urlParams.get('collection');
-            if (collection && ['necklaces', 'earrings', 'rings', 'bracelets'].includes(collection)) {
-                applyFilter(collection);
-            }
-        });
+        // Initial render
+        renderGallery();
     </script>
 </body>
 </html>
