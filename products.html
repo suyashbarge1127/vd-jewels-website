@@ -191,8 +191,21 @@
             });
         });
 
+        // Check URL parameters for initial filter
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialCollection = urlParams.get('collection') || 'all';
+
+        // Set the correct filter button to active
+        document.querySelectorAll('.filter-btn').forEach(b => {
+            if (b.dataset.category === initialCollection) {
+                b.classList.add('active');
+            } else {
+                b.classList.remove('active');
+            }
+        });
+
         // Initial render
-        renderGallery();
+        renderGallery(initialCollection);
     </script>
 </body>
 </html>
