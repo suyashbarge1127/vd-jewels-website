@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VD Jewels - Website Design Presentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #EFEEE1;
+            --accent-gold: #D4AF37;
+            --charcoal: #1A1A1A;
+            --deep-charcoal: #0D0D0D;
+            --warm-beige: #F5F5DC;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcf9;
+            color: var(--charcoal);
+            line-height: 1.6;
+        }
+
+        /* Slide layout optimized for PDF print paging */
+        .slide {
+            width: 297mm; /* A4 Landscape width */
+            height: 210mm; /* A4 Landscape height */
+            padding: 25mm;
+            background-color: var(--white);
+            border: 1px solid #eee;
+            margin: 20px auto;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            page-break-after: always;
+            overflow: hidden;
+        }
+
+        @media print {
+            body {
+                background-color: var(--white);
+            }
+            .slide {
+                margin: 0;
+                border: none;
+                box-shadow: none;
+                width: 100%;
+                height: 100vh;
+                page-break-after: always;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            padding-bottom: 15px;
+        }
+
+        .logo-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 500;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .slide-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.8rem;
+            color: var(--charcoal);
+            font-weight: 300;
+            line-height: 1.2;
+            margin-top: 10px;
+        }
+
+        .slide-subtitle {
+            font-size: 0.85rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 600;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        /* Slide specific styles */
+        .title-slide-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            height: 100%;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-gold);
+        }
+
+        .title-slide-content h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.5rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .title-slide-content p {
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            width: 100%;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            width: 100%;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        /* Brand palette colors */
+        .color-card {
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+        }
+
+        .color-block {
+            height: 100px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        ul.points-list {
+            list-style: none;
+        }
+
+        ul.points-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        ul.points-list li::before {
+            content: "—";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .feature-box {
+            background-color: #fafaf5;
+            padding: 30px;
+            border-left: 2px solid var(--accent-gold);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .feature-box h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            color: var(--charcoal);
+        }
+
+        .img-placeholder {
+            width: 100%;
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+
+        footer.slide-footer {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: #888;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 15px;
+        }
+
+        .italic-serif {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Slide 1: Cover -->
+    <div class="slide" style="background-color: var(--primary-color);">
+        <div style="display: flex; justify-content: space-between; width: 100%;">
+            <span class="slide-subtitle" style="color: var(--accent-gold-dark);">VD Jewels Artison</span>
+            <span class="logo-text">Est. 2017</span>
+        </div>
+        <div class="content">
+            <div class="title-slide-content">
+                <p>Digital Brand Presentation</p>
+                <h1>Website Design &<br><span class="italic-serif">Architecture Overview</span></h1>
+                <p style="margin-top: 20px; font-weight: 500;">Crafting a Digital Luxury House Experience</p>
+            </div>
+        </div>
+        <footer class="slide-footer">
+            <span>Confidential | For Internal Use Only</span>
+            <span>Slide 1 of 5</span>
+        </footer>
+    </div>
+
+    <!-- Slide 2: Design Identity & Theme -->
+    <div class="slide">
+        <header>
+            <div>
+                <span class="slide-subtitle">Section 01</span>
+                <h2 class="slide-title">Design Identity & Theme</h2>
+            </div>
+            <span class="logo-text">VD Jewels</span>
+        </header>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <h3 class="italic-serif" style="font-size: 1.8rem; margin-bottom: 15px;">Visual Concept</h3>
+                    <p style="margin-bottom: 20px; font-size: 0.95rem;">
+                        The VD Jewels digital experience is built around a "Luxury House" concept. The aesthetic mirrors high-end jewelry stores by using minimal typography, spacious layouts, and alternating high-contrast section colors.
+                    </p>
+                    <ul class="points-list">
+                        <li><strong>Typography:</strong> Cormorant Garamond for elegant, classic headings, paired with Inter for clean, legible body text.</li>
+                        <li><strong>Structure:</strong> Full-width grid sections designed to let professional product photography take center stage.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="italic-serif" style="font-size: 1.8rem; margin-bottom: 15px;">Core Color Palette</h3>
+                    <div class="grid-4">
+                        <div class="color-card">
+                            <div class="color-block" style="background-color: #EFEEE1;"></div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">Warm Beige</span>
+                            <code style="font-size: 0.75rem; display: block; color: #888;">#EFEEE1</code>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-block" style="background-color: #D4AF37;"></div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">Accent Gold</span>
+                            <code style="font-size: 0.75rem; display: block; color: #888;">#D4AF37</code>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-block" style="background-color: #735B45;"></div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">Bronze Brown</span>
+                            <code style="font-size: 0.75rem; display: block; color: #888;">#735B45</code>
+                        </div>
+                        <div class="color-card">
+                            <div class="color-block" style="background-color: #1A1A1A;"></div>
+                            <span style="font-size: 0.8rem; font-weight: bold;">Charcoal</span>
+                            <code style="font-size: 0.75rem; display: block; color: #888;">#1A1A1A</code>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="slide-footer">
+            <span>Website Design Presentation</span>
+            <span>Slide 2 of 5</span>
+        </footer>
+    </div>
+
+    <!-- Slide 3: Page Architecture & Layout Flow -->
+    <div class="slide">
+        <header>
+            <div>
+                <span class="slide-subtitle">Section 02</span>
+                <h2 class="slide-title">Page Architecture & Layout Flow</h2>
+            </div>
+            <span class="logo-text">VD Jewels</span>
+        </header>
+        <div class="content">
+            <div class="grid-3">
+                <div class="feature-box">
+                    <h4>01. Landing Experience</h4>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        An immersive, full-screen Hero section overlaying a luxurious model banner. Highlights the brand tagline with smooth, fade-in introduction typography.
+                    </p>
+                </div>
+                <div class="feature-box">
+                    <h4>02. Interactive Pillars</h4>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        Alternating sections including the "Company Glance" grid, "Our Mission" card columns, "Legacy Stats" metrics, and "Featured Collections" blocks.
+                    </p>
+                </div>
+                <div class="feature-box">
+                    <h4>03. Seamless Transitions</h4>
+                    <p style="font-size: 0.85rem; color: #666; margin-top: 10px;">
+                        Interactive hover scale effects on cards, alternating light/dark page sections, and a scroll-triggered responsive navigation bar.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer class="slide-footer">
+            <span>Website Design Presentation</span>
+            <span>Slide 3 of 5</span>
+        </footer>
+    </div>
+
+    <!-- Slide 4: Key Functional Features -->
+    <div class="slide">
+        <header>
+            <div>
+                <span class="slide-subtitle">Section 03</span>
+                <h2 class="slide-title">Key Functional Features</h2>
+            </div>
+            <span class="logo-text">VD Jewels</span>
+        </header>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <ul class="points-list">
+                        <li style="margin-bottom: 20px;">
+                            <strong>Dynamic URL Filtering:</strong><br>
+                            Clicking "Rings," "Necklaces," "Earrings," or "Bracelets" on the homepage automatically opens the products page pre-filtered to that specific collection, complete with active category tabs.
+                        </li>
+                        <li style="margin-bottom: 20px;">
+                            <strong>Ultra-Responsive Grid:</strong><br>
+                            The entire layout converts dynamically to mobile viewport formats. Navigation items stack neatly, stats arrange vertically, and button arrays pivot to full-width mobile designs.
+                        </li>
+                        <li>
+                            <strong>Performance Optimization:</strong><br>
+                            Images are scale-optimized with modern CSS rendering logic to remove scaling grain, ensuring rapid load times on mobile connections.
+                        </li>
+                    </ul>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center;">
+                    <div class="img-placeholder" style="background-image: url('assets/hero_uploaded.png');"></div>
+                    <p style="font-size: 0.75rem; text-align: center; margin-top: 10px; color: #777;">
+                        Visual Landmark: Hero Background & Luxury Model Placement
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer class="slide-footer">
+            <span>Website Design Presentation</span>
+            <span>Slide 4 of 5</span>
+        </footer>
+    </div>
+
+    <!-- Slide 5: Strategic Impact -->
+    <div class="slide" style="background-color: var(--deep-charcoal); color: var(--white);">
+        <header style="border-bottom-color: rgba(255,255,255,0.1);">
+            <div>
+                <span class="slide-subtitle" style="color: var(--accent-gold);">Section 04</span>
+                <h2 class="slide-title" style="color: var(--white);">Strategic Impact & Launch</h2>
+            </div>
+            <span class="logo-text" style="color: var(--accent-gold);">VD Jewels</span>
+        </header>
+        <div class="content">
+            <div class="grid-2">
+                <div>
+                    <h3 class="italic-serif" style="font-size: 1.8rem; margin-bottom: 15px; color: var(--accent-gold);">Digital Launch Accomplished</h3>
+                    <p style="color: #ccc; font-size: 0.95rem; margin-bottom: 20px;">
+                        The website is now fully hosted and secure on custom domain <strong>vdjewels.info</strong>.
+                    </p>
+                    <ul class="points-list" style="color: #ccc;">
+                        <li><strong>SSO & Security:</strong> Built-in HTTPS certification protects page viewers.</li>
+                        <li><strong>Global Reach:</strong> Hosted natively on GitHub Pages infrastructure with rapid global content delivery.</li>
+                    </ul>
+                </div>
+                <div style="background-color: rgba(255,255,255,0.05); padding: 30px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.1);">
+                    <h4 class="italic-serif" style="color: var(--accent-gold); font-size: 1.4rem; margin-bottom: 10px;">Future Scalability</h4>
+                    <p style="font-size: 0.85rem; color: #bbb; line-height: 1.7;">
+                        The code is structured cleanly using standard vanilla HTML5/CSS3 and native Javascript modules. This makes it incredibly easy to add custom shopping-cart integrations (e.g. Shopify Lite or custom inquiry forms) and dynamic collections in the future.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <footer class="slide-footer" style="border-top-color: rgba(255,255,255,0.1);">
+            <span style="color: #666;">VD Jewels Brand Presentation © 2026</span>
+            <span style="color: #666;">Slide 5 of 5</span>
+        </footer>
+    </div>
+
+</body>
+</html>
