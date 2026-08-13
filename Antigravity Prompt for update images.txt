@@ -1,0 +1,14 @@
+I have added new products to the [CATEGORY] folder.
+
+Find all newly added image files in:
+assets/[CATEGORY]/
+
+Update products.html so these new images appear in the [CATEGORY] collection.
+
+Do NOT remove existing products.
+Do NOT change the website design, CSS, layout, filters, navigation, header or footer.
+Use the exact filenames from the folder.
+Verify every referenced image exists.
+Then commit the products.html change.
+
+Do NOT push yet. I will push using GitHub Desktop.
